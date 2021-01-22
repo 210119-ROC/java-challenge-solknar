@@ -2,6 +2,8 @@ package com.revature.eval.java.core;
 
 import java.util.Scanner;
 
+import com.revature.eval.java.core.EvaluationService.Triangle;
+
 public class Driver {
 	
 	public static void main(String[] args) {
@@ -87,6 +89,14 @@ public class Driver {
 		divider();
 		
 		System.out.println("12. Triangles");
+		Triangle triangle = new Triangle(2,3,4);
+		System.out.println(triangle.isEquilateral());
+		System.out.println(triangle.isIsosceles());
+		System.out.println(triangle.isScalene());
+		
+		divider();
+		
+		System.out.println("13. Scrabble Score");
 	}
 	
 	public static void divider() {
