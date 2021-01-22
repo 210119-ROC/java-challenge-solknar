@@ -217,8 +217,15 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if (minutes < 0) {
+			return "Invalid Value";
+		}else {
+			long XX = minutes;
+			long YY = minutes / 525600;
+			long ZZ = (XX%525600) / 1440;
+			String answer = XX + " min = " + YY + " y and " + ZZ + " d";
+			return answer;
+		}
 	}
 
 	/**
@@ -231,7 +238,19 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		// TODO Write an implementation for this method declaration
+		String[] words = {"ZERO","ONE","TWO","THREE","FOUR","FIVE","SIX","SEVEN","EIGHT","NINE"};
+		int[] numbers = {0,1,2,3,4,5,6,7,8,9};
+		
+		if (number < 0 || number > 9) {
+			return "OTHER";
+		}else {
+			for (int i = 0; i < words.length; i++) {
+				if (numbers[i] == number) {
+					return words[i];
+				}
+			}
+		}
+		
 		return null;
 	}
 
@@ -255,7 +274,29 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
+		int bigger;
+		int smaller;
+		if (first < 10 || second < 10) {
+			return -1;
+		}else {
+			if (first > second){
+				bigger = first;
+				smaller = second;
+			}else {
+				bigger = second;
+				smaller = first;
+			}
+			int common = smaller;
+			int factor = 1;
+			while(common > 1) {
+				if (smaller%common == 0 && bigger%common == 0) {
+					return common;
+				}else {
+					factor++;
+					common = smaller/factor;
+				}
+			}
+		}
 		return 0;
 	}
 
@@ -273,8 +314,19 @@ public class EvaluationService {
 	 * invalid value.
 	 */
 	public int sumFirstAndLastDigit(int num) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		if (num < 0) {
+			return -1;
+		}else {
+			String word = String.valueOf(num);
+			int stringSize = word.length();
+			char last = word.charAt(stringSize-1);
+			char first = word.charAt(0);
+			int a = Character.getNumericValue(first);
+			int b = Character.getNumericValue(last);
+			return a + b;
+		}
+		
 	}
 
 	/**
@@ -284,8 +336,15 @@ public class EvaluationService {
 	 * reverses a String. Example: reverse("example"); -> "elpmaxe"
 	 */
 	public String reverse(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		int size = string.length();
+		String reverse = "";
+		
+		for (int i = 0; i < string.length(); i++) {
+			reverse = reverse + string.charAt(size-1);
+			size--;
+		}
+		
+		return reverse;
 	}
 
 	/**
@@ -296,8 +355,18 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		int size = phrase.length();
+		
+		String acronym = "";
+		acronym += phrase.charAt(0);
+		
+		for (int i = 1; i < phrase.length(); i++) {
+			if (phrase.charAt(i) == ' ' || phrase.charAt(i) == '-') {
+				acronym += phrase.charAt(i+1);
+			}
+		}
+		
+		return acronym.toUpperCase();
 	}
 
 	/**
