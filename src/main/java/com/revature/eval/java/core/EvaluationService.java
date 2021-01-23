@@ -1,9 +1,8 @@
 package com.revature.eval.java.core;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class EvaluationService {
 
@@ -462,8 +461,30 @@ public class EvaluationService {
 	 * 3 + 2*1 + 2*3 + 2 + 1 = 3 + 2 + 6 + 3 = 5 + 9 = 14
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+
+		int size = string.length();
+		string = string.toLowerCase();
+		int counter = 0;
+		
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) == ('z') || string.charAt(i) == ('q')){
+				counter += 10;
+			}else if (string.charAt(i) == ('j') || string.charAt(i) == ('x')) {
+					counter += 8;
+			}else if (string.charAt(i) == ('k')){
+					counter += 5;
+			}else if (string.charAt(i) == ('f') || string.charAt(i) == ('h') || string.charAt(i) == ('v') || string.charAt(i) == ('w') || string.charAt(i) == ('y')) {
+				counter += 4;
+			}else if (string.charAt(i) == ('b') || string.charAt(i) == ('c') || string.charAt(i) == ('m') ||string.charAt(i) == ('p')) {
+				counter += 3;
+			}else if (string.charAt(i) == ('d') || string.charAt(i) == ('g')) {
+				counter += 2;
+			}else {
+				counter += 1;
+			}
+		}
+		
+		return counter;
 	}
 
 	/**

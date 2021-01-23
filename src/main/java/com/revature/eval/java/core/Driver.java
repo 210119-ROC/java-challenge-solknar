@@ -97,6 +97,11 @@ public class Driver {
 		divider();
 		
 		System.out.println("13. Scrabble Score");
+		System.out.println(novo.getScrabbleScore("quirky"));
+		
+		divider();
+		
+		System.out.println("14. Clean the Phone Number");
 	}
 	
 	public static void divider() {
