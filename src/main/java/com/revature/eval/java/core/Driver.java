@@ -102,6 +102,12 @@ public class Driver {
 		divider();
 		
 		System.out.println("14. Clean the Phone Number");
+		System.out.println(novo.cleanPhoneNumber("223 456   7890   "));
+		
+		divider();
+		
+		System.out.println("15. Recurring Word Counter");
+		
 	}
 	
 	public static void divider() {

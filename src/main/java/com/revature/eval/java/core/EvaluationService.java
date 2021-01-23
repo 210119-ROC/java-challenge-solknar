@@ -470,9 +470,9 @@ public class EvaluationService {
 			if (string.charAt(i) == ('z') || string.charAt(i) == ('q')){
 				counter += 10;
 			}else if (string.charAt(i) == ('j') || string.charAt(i) == ('x')) {
-					counter += 8;
+				counter += 8;
 			}else if (string.charAt(i) == ('k')){
-					counter += 5;
+				counter += 5;
 			}else if (string.charAt(i) == ('f') || string.charAt(i) == ('h') || string.charAt(i) == ('v') || string.charAt(i) == ('w') || string.charAt(i) == ('y')) {
 				counter += 4;
 			}else if (string.charAt(i) == ('b') || string.charAt(i) == ('c') || string.charAt(i) == ('m') ||string.charAt(i) == ('p')) {
@@ -521,7 +521,25 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		String phoneNumber = "";
+		String cleanNumber = "";
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) >= 48 && string.charAt(i) <= 57) {
+				phoneNumber += string.charAt(i);
+			}
+		}
+		
+		if (phoneNumber.charAt(0) == 49) {
+			for (int j = 1; j < 11; j++) {
+				cleanNumber += phoneNumber.charAt(j);
+			}
+		}else {
+			for (int k = 0; k < 10; k++) {
+				cleanNumber += phoneNumber.charAt(k);
+			}
+		}
+		
+		return cleanNumber;
 	}
 
 	/**
