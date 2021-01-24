@@ -117,6 +117,7 @@ public class Driver {
 		divider();
 		
 		System.out.println("17. Prime Factors");
+		System.out.println(novo.calculatePrimeFactorsOf(2L));
 		
 		divider();
 		

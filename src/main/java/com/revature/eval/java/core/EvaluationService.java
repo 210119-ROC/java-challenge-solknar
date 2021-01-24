@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -615,8 +616,18 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		long n = l;
+		long element;
+		List<Long> primes = new ArrayList<Long>();
+		
+		for (int i = 2; i <= n; i++) {
+			while (n % i == 0) {
+				element = i;
+				primes.add(element);
+				n /= i;
+			}
+		}
+		return primes;
 	}
 
 	/**
