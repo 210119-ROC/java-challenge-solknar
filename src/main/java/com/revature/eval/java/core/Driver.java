@@ -107,7 +107,37 @@ public class Driver {
 		divider();
 		
 		System.out.println("15. Recurring Word Counter");
+		System.out.println(novo.wordCount("one fish two fish red fish blue fish"));
 		
+		divider();
+		
+		System.out.println("16. Armstrong Number");
+		System.out.println(novo.isArmstrongNumber(9474));
+		
+		divider();
+		
+		System.out.println("17. Prime Factors");
+		
+		divider();
+		
+		System.out.println("18. Calculate Nth Prime");
+		
+		divider();
+		
+		System.out.println("19. Pangram");
+		
+		divider();
+		
+		System.out.println("20. Sum of Multiples ");
+		
+		divider();
+		
+		System.out.println("21. Three Magic Numbers");
+		System.out.println(novo.threeLuckyNumbers());
+		
+		divider();
+		
+		System.out.println("22. Easy Guessing Game");
 	}
 	
 	public static void divider() {

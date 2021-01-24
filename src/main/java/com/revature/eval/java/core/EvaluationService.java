@@ -1,8 +1,9 @@
 package com.revature.eval.java.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
+import java.util.Random;
 
 public class EvaluationService {
 
@@ -551,8 +552,21 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		if (string == null || string.isEmpty()) { 
+			return null; }
+
+		String[] words = string.split("\\s+");
+		
+		Map<String, Integer> occurrences = new HashMap<String, Integer>();
+		
+		for (String word : words) {
+			Integer oldCount = occurrences.get(word);
+			if (oldCount == null) {
+				oldCount = 0;
+			}
+			occurrences.put(word,  oldCount + 1);
+		}
+		return occurrences;
 	}
 
 	/**
@@ -570,6 +584,25 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
+		
+		String words = String.valueOf(input);
+		int size = words.length();
+		double[] array = new double[size];
+		int counter = input;
+		for (int i = 0; i < size; i++) {
+			array[i] = counter%10;
+			counter /= 10;
+		}
+		int cumulative = 0;
+
+		for (int j = 0; j < size; j++) {
+			array[j] = Math.pow(array[j], size);
+			cumulative += array[j];
+		}
+		
+		if (cumulative == input) {
+			return true;
+		}
 		return false;
 	}
 
@@ -645,7 +678,15 @@ public class EvaluationService {
 	 */
 	
 	public int[] threeLuckyNumbers() {
-		return null;
+		int[] array = new int[3];
+		Random rand = new Random();
+		
+		for (int i = 0; i <3; i++) {
+			
+			array[i] = rand.nextInt(100);
+		}
+		
+		return array;
 	}
 	
 	/*
