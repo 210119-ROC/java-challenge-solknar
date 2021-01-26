@@ -356,7 +356,6 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		int size = phrase.length();
 		
 		String acronym = "";
 		acronym += phrase.charAt(0);
@@ -464,7 +463,6 @@ public class EvaluationService {
 	 */
 	public int getScrabbleScore(String string) {
 
-		int size = string.length();
 		string = string.toLowerCase();
 		int counter = 0;
 		
@@ -642,7 +640,27 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
+		if (k <= 0) {
+			throw new IllegalArgumentException("Please enter a positive integer");
+		}
+		int flag = 0;
+		int count = 0;
+
+		for (int i = 2; i > 0; i++) {
+			flag = 0;
+			for (int j = 2; j < i; j++) {
+				if (i%j == 0) {
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0) {
+				count++;
+			}
+			if (count == k) {
+				return i;
+			}
+		}
 		return 0;
 	}
 
@@ -659,8 +677,29 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		String s = string;
+		boolean pangram = true;
+		
+		boolean[] checks = new boolean[26];
+		int index = 0;
+		
+		for (int i = 0; i < s.length(); i++) {
+			
+			if (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z') {
+				index = s.charAt(i) - 'A';
+			}else if(s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
+				index = s.charAt(i) - 'a';
+			}
+			
+			checks[index] = true;
+		}
+		
+		for (int i = 0; i < checks.length; i++) {
+			if (checks[i] == false) {
+				pangram = false;
+			}
+		}
+		return pangram;
 	}
 
 	/**
@@ -675,7 +714,31 @@ public class EvaluationService {
 	 * The sum of these multiples is 78.
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+		int setSize = set.length;
+		int counter = 0;
+		int lastAdded = 0;
+		
+		for (int j = 1; j < i; j++) {
+			for (int k = 0; k < setSize; k++) {
+				if (j%set[k] == 0) {
+					
+					if (j == lastAdded) {
+						counter+=0;
+					}else {
+						counter += j;
+						lastAdded = j;
+					}
+				}
+			}
+		}
+		
+//		for (int j = 2; j < i; j++) {
+//			if (j%set[0] == 0 || j%set[1] == 0 ) {
+//				counter += j;
+//			}
+//		}
+		
+		return counter;
 	}
 	
 	/**
@@ -711,6 +774,8 @@ public class EvaluationService {
 	 */
 	
 	public int guessingGame(int x, int y) {
-		return 0;
+		double result = x + (Math.random() * y);
+		int intResult = (int) result;
+		return intResult;
 	}
 }

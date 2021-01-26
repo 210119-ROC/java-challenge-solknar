@@ -122,14 +122,19 @@ public class Driver {
 		divider();
 		
 		System.out.println("18. Calculate Nth Prime");
+		System.out.println(novo.calculateNthPrime(10001));
 		
 		divider();
 		
 		System.out.println("19. Pangram");
+		System.out.println(novo.isPangram("five boxing wizards jump quickly at it"));
+		
 		
 		divider();
 		
 		System.out.println("20. Sum of Multiples ");
+		int[] set = { 5, 6, 8 };
+		System.out.println(novo.getSumOfMultiples(150, set));
 		
 		divider();
 		
@@ -139,6 +144,7 @@ public class Driver {
 		divider();
 		
 		System.out.println("22. Easy Guessing Game");
+		System.out.println(novo.guessingGame(4, 30));
 	}
 	
 	public static void divider() {
