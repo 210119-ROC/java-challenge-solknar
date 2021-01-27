@@ -521,12 +521,19 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
+		
+		
 		String phoneNumber = "";
 		String cleanNumber = "";
 		for (int i = 0; i < string.length(); i++) {
 			if (string.charAt(i) >= 48 && string.charAt(i) <= 57) {
 				phoneNumber += string.charAt(i);
 			}
+			
+		}
+		
+		if (phoneNumber.length() > 11 || phoneNumber.length() < 10) {
+			throw new IllegalArgumentException("Wrong input");
 		}
 		
 		if (phoneNumber.charAt(0) == 49) {
@@ -538,6 +545,7 @@ public class EvaluationService {
 				cleanNumber += phoneNumber.charAt(k);
 			}
 		}
+		
 		
 		return cleanNumber;
 	}
@@ -553,8 +561,11 @@ public class EvaluationService {
 	public Map<String, Integer> wordCount(String string) {
 		if (string == null || string.isEmpty()) { 
 			return null; }
+		String raw = string.replace("\n", "");
+		
+		raw = raw.replace(",", " ");
 
-		String[] words = string.split("\\s+");
+		String[] words = raw.split("\\s+");
 		
 		Map<String, Integer> occurrences = new HashMap<String, Integer>();
 		
